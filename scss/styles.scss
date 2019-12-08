@@ -1,43 +1,64 @@
+////////////////////////////// general //////////////////////////////
+
 $bg-color-main: #FAEBD7;
 $bg-color-item: #DEB887;
-$bg-btn-color-hover: #A0522D;
-$color: black;
-$btn-color-hover: white;
+$bg-color-correct: #23a82c;
+$bg-color-incorrect: #bf1f06;
+$bg-btn-color-hover: #b3792e;
+$text-color: #333333;
 
+@mixin flex-centered() {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
 
 .main {
-  box-sizing: border-box;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flex-centered();
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   background-color: $bg-color-main;
   width: 100vw;
   height: 100vh;
-  color: $color;
+  color: $text-color;
+  font-family: 'Indie Flower', cursive;
 }
 
-
 .container {
+  display: -ms-grid;
   display: grid;
 }
 
-.header, .question, .score, .answer-1, .answer-2, .answer-3, .answer-4 {
+.header, 
+.question, 
+.score, 
+.answer-1, 
+.answer-2, 
+.answer-3, 
+.answer-4 {
+  @include flex-centered();
   background-color: $bg-color-item;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
-
-.button-container {
+.button-container-1, 
+.button-container-2, 
+.button-container-3, 
+.button-container-4 {
+  @include flex-centered();
   width: 75%;
   height: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
-.button-container__button {
+.button-container-1__button, 
+.button-container-2__button, 
+.button-container-3__button, 
+.button-container-4__button {
   background-color: $bg-color-main; 
   border: 1px solid $bg-btn-color-hover;
   width: 80%;
@@ -45,48 +66,132 @@ $btn-color-hover: white;
   cursor: pointer;	
 }
 
-.button-container__button:hover {
-  color: $btn-color-hover;
+.button-container-1__button:hover:not(.correct):not(.incorrect), // hover settings will apply only if main class doesn't have .correct or .incorrect classes
+.button-container-2__button:hover:not(.correct):not(.incorrect),
+.button-container-3__button:hover:not(.correct):not(.incorrect), 
+.button-container-4__button:hover:not(.correct):not(.incorrect) {
+  color: $bg-color-main;
   background-color: $bg-btn-color-hover;
 }
 
-.button-container__button:active {
-  transform:translateY(2px);
+.button-container-1__button:active, 
+.button-container-2__button:active, 
+.button-container-3__button:active, 
+.button-container-4__button:active {
+  -webkit-transform:translateY(2px);
+      -ms-transform:translateY(2px);
+          transform:translateY(2px);
 }
 
-h1 {
-  font {
-    family: 'Indie Flower', cursive; // doesnt work fix for pig game as well
-  }
+.correct {
+  background-color: $bg-color-correct;
+  color: $bg-color-main;
 }
 
+.incorrect {
+  background-color: $bg-color-incorrect;
+  color: $bg-color-main;
+}
 
+.question__heading {
+  font-style: italic;
+}
 
+.end-game-result, 
+.start-over {
+  position: absolute;
+  z-index: 1;
+  opacity: 0.95;
+}
 
+.end-game-result {
+  @include flex-centered();
+  background-color: $bg-color-item;
+  font-size: 2vw;
+}
 
-// for mobile phones
+.start-over {
+  left: 45%;
+  bottom: 25%;
+}
+
+.start-over__button {
+  background-color: $bg-color-main; 
+  border: 1px solid $bg-btn-color-hover;
+  width: 12vw;
+  height: 5vh;
+  cursor: pointer;
+  font-size: 2vw;	
+}
+
+.start-over__button:hover {
+  color: $bg-color-main;
+  background-color: $bg-btn-color-hover;
+}
+
+.visible {
+  visibility: visible;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.score__current-score, 
+.end-game-result__current-score {
+  font-weight: 700;
+}
+
+////////////////////////////// for mobile phones //////////////////////////////
+
 @media only screen and (max-width: 767px) {
+  .main {
+    font-size: 3vw;
+  }
 
   .container {
+    -ms-grid-columns: 1fr;
     grid-template-columns: 1fr;
+    -ms-grid-rows: 1fr 0.5vw 1fr 0.5vw 1fr 0.5vw 4fr 0.5vw 4fr 0.5vw 4fr 0.5vw 4fr;
     grid-template-rows: 1fr 1fr 1fr 4fr 4fr 4fr 4fr; 
     width: 85vw;
     height: 85vh; 
     grid-gap: 0.5vw; 
   }
 
-  .header, .question, .score, .answer-1, .answer-2, .answer-3, .answer-4 {
+  .header, 
+  .question, 
+  .score, 
+  .answer-1, 
+  .answer-2, 
+  .answer-3, 
+  .answer-4 {
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
     grid-column: 1 / 2;
   }
+  
+  .question__heading {
+    font-size: 2.5vw;
+  }
 
+  .end-game-result {
+    width: 85vw;
+    height: 85vh; 
+  }
 }
 
+////////////////////////////// for tablets //////////////////////////////
 
-// for tablets
 @media only screen and (min-width: 768px) {
+  .main {
+    font-size: 2vw;
+  }
 
   .container {
-    grid-template-columns: 1fr 1fr;
+    -ms-grid-columns: 1fr 0.5vw 1fr 0.5vw 1fr 0.5vw 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    -ms-grid-rows: 1fr 0.5vw 1fr 0.5vw 3fr 0.5vw 3fr;
     grid-template-rows: 1fr 1fr 3fr 3fr;
     width: 80vw;
     height: 80vh; 
@@ -94,33 +199,58 @@ h1 {
   }
   
   .header {
-    grid-column: 1 / 3;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 4;
+    grid-column: 1 / 5;
   }
 
   .question {
-    grid-column: 1 / 2;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 3;
+    grid-column: 1 / 4;
   }
 
   .score {
-    grid-column: 2 / 3;
+    -ms-grid-column: 4;
+    -ms-grid-column-span: 1;
+    grid-column: 4 / 5;
   } 
   
-  .answer-1, .answer-3 {
-    grid-column: 1 / 2;
+  .answer-1, 
+  .answer-3 {
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+    grid-column: 1 / 3;
   }
 
-  .answer-2, .answer-4 {
-    grid-column: 2 / 3;
+  .answer-2, 
+  .answer-4 {
+    -ms-grid-column: 3;
+    -ms-grid-column-span: 2;
+    grid-column: 3 / 5;
+  }
+  
+  .question__heading {
+    font-size: 2vw;
   }
 
+  .end-game-result {
+    width: 80vw;
+    height: 80vh;  
+  }
 }
 
+////////////////////////////// for desktop //////////////////////////////
 
-// for desktop
 @media only screen and (min-width: 1200px) {
-  
+  .main {
+    font-size: 1.5vw;
+  }
+
   .container {
+    -ms-grid-columns: 1fr 0.5vw 1fr 0.5vw 1fr 0.5vw 1fr;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    -ms-grid-rows: 1fr 0.5vw 1fr 0.5vw 2fr;
     grid-template-rows: 1fr 1fr 2fr;
     width: 75vw;
     height: 75vh; 
@@ -128,33 +258,53 @@ h1 {
   }
 
   .header {
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 4;
     grid-column: 1 / 5;
   }
   
   .question {
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 3;
     grid-column: 1 / 4;
   }
   
   .score {
+    -ms-grid-column: 4;
+    -ms-grid-column-span: 1;
     grid-column: 4 / 5;
   }
   
   .answer-1 {
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
     grid-column: 1 / 2;
   }
 
   .answer-2 {
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 1;
     grid-column: 2 / 3;
   }
 
   .answer-3 {
+    -ms-grid-column: 3;
+    -ms-grid-column-span: 1;
     grid-column: 3 / 4;
   }
 
   .answer-4 {
+    -ms-grid-column: 4;
+    -ms-grid-column-span: 1;
     grid-column: 4 / 5;
   }
 
+  .question__heading {
+    font-size: 2vw;
+  }
+
+  .end-game-result {
+    width: 75vw;
+    height: 75vh; 
+  } 
 }
-
-
