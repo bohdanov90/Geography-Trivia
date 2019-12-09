@@ -64,21 +64,6 @@
   height: 80%;
   cursor: pointer; }
 
-.button-container-1__button:hover:not(.correct):not(.incorrect),
-.button-container-2__button:hover:not(.correct):not(.incorrect),
-.button-container-3__button:hover:not(.correct):not(.incorrect),
-.button-container-4__button:hover:not(.correct):not(.incorrect) {
-  color: #FAEBD7;
-  background-color: #b3792e; }
-
-.button-container-1__button:active,
-.button-container-2__button:active,
-.button-container-3__button:active,
-.button-container-4__button:active {
-  -webkit-transform: translateY(2px);
-  -ms-transform: translateY(2px);
-  transform: translateY(2px); }
-
 .correct {
   background-color: #23a82c;
   color: #FAEBD7; }
@@ -121,10 +106,6 @@
   cursor: pointer;
   font-size: 2vw; }
 
-.start-over__button:hover {
-  color: #FAEBD7;
-  background-color: #b3792e; }
-
 .visible {
   visibility: visible; }
 
@@ -135,6 +116,25 @@
 .end-game-result__current-score {
   font-weight: 700; }
 
+@media (hover: hover) and (pointer: fine) {
+  .button-container-1__button:hover:not(.correct):not(.incorrect),
+  .button-container-2__button:hover:not(.correct):not(.incorrect),
+  .button-container-3__button:hover:not(.correct):not(.incorrect),
+  .button-container-4__button:hover:not(.correct):not(.incorrect) {
+    color: #FAEBD7;
+    background-color: #b3792e; }
+
+  .button-container-1__button:active,
+  .button-container-2__button:active,
+  .button-container-3__button:active,
+  .button-container-4__button:active {
+    -webkit-transform: translateY(2px);
+    -ms-transform: translateY(2px);
+    transform: translateY(2px); }
+
+  .start-over__button:hover {
+    color: #FAEBD7;
+    background-color: #b3792e; } }
 @media only screen and (max-width: 767px) {
   .main {
     font-size: 3vw; }

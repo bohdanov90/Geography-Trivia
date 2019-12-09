@@ -66,23 +66,6 @@ $text-color: #333333;
   cursor: pointer;	
 }
 
-.button-container-1__button:hover:not(.correct):not(.incorrect), // hover settings will apply only if main class doesn't have .correct or .incorrect classes
-.button-container-2__button:hover:not(.correct):not(.incorrect),
-.button-container-3__button:hover:not(.correct):not(.incorrect), 
-.button-container-4__button:hover:not(.correct):not(.incorrect) {
-  color: $bg-color-main;
-  background-color: $bg-btn-color-hover;
-}
-
-.button-container-1__button:active, 
-.button-container-2__button:active, 
-.button-container-3__button:active, 
-.button-container-4__button:active {
-  -webkit-transform:translateY(2px);
-      -ms-transform:translateY(2px);
-          transform:translateY(2px);
-}
-
 .correct {
   background-color: $bg-color-correct;
   color: $bg-color-main;
@@ -124,11 +107,6 @@ $text-color: #333333;
   font-size: 2vw;	
 }
 
-.start-over__button:hover {
-  color: $bg-color-main;
-  background-color: $bg-btn-color-hover;
-}
-
 .visible {
   visibility: visible;
 }
@@ -140,6 +118,32 @@ $text-color: #333333;
 .score__current-score, 
 .end-game-result__current-score {
   font-weight: 700;
+}
+
+////////////////////////////// for non-touch screen devices (to eliminate hover effects trails) //////////////////////////////
+
+@media(hover: hover) and (pointer: fine) {
+  .button-container-1__button:hover:not(.correct):not(.incorrect), // will apply if main class doesn't have .correct||.incorrect classes
+  .button-container-2__button:hover:not(.correct):not(.incorrect),
+  .button-container-3__button:hover:not(.correct):not(.incorrect), 
+  .button-container-4__button:hover:not(.correct):not(.incorrect) {
+    color: $bg-color-main;
+    background-color: $bg-btn-color-hover;
+  }
+  
+  .button-container-1__button:active, 
+  .button-container-2__button:active, 
+  .button-container-3__button:active, 
+  .button-container-4__button:active {
+    -webkit-transform:translateY(2px);
+        -ms-transform:translateY(2px);
+            transform:translateY(2px);
+  }
+
+  .start-over__button:hover {
+    color: $bg-color-main;
+    background-color: $bg-btn-color-hover;
+  }
 }
 
 ////////////////////////////// for mobile phones //////////////////////////////
