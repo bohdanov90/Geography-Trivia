@@ -26,7 +26,7 @@ $bg-btn-color-hover: #b3792e;
   background-color: $bg-color-main; 
   color: $text-color;
   font-family: 'Indie Flower', cursive;
-  height: 100vh;
+  height: 95vh;
   width: 100vw;
 }
 
@@ -115,6 +115,22 @@ $bg-btn-color-hover: #b3792e;
           background-color: $bg-color-incorrect;
           color: $bg-color-main;
         }
+
+.legal {
+  @include flex-centered();
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: $bg-color-main; 
+  color: $text-color;
+  font-family: 'Indie Flower', cursive;
+  height: 5vh;
+  width: 100vw;
+}
+
+  .legal p {
+    position: absolute;
+    bottom: 2vh;
+  }
 
 ////////////////////////////// for non-touch screen devices (to eliminate hover effects trails) //////////////////////////////
 

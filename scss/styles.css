@@ -13,7 +13,7 @@
   background-color: #FAEBD7;
   color: #333333;
   font-family: 'Indie Flower', cursive;
-  height: 100vh;
+  height: 95vh;
   width: 100vw; }
 
 .container {
@@ -113,6 +113,28 @@
   background-color: #bf1f06;
   color: #FAEBD7; }
 
+.legal {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  background-color: #FAEBD7;
+  color: #333333;
+  font-family: 'Indie Flower', cursive;
+  height: 5vh;
+  width: 100vw; }
+
+.legal p {
+  position: absolute;
+  bottom: 2vh; }
+
 @media (hover: hover) and (pointer: fine) {
   .start-over__button:hover,
   .button-container-1__button:hover:not(.correct):not(.incorrect),
@@ -127,7 +149,6 @@
   .button-container-3__button:active,
   .button-container-4__button:active {
     -webkit-transform: translateY(2px);
-    -ms-transform: translateY(2px);
     transform: translateY(2px); } }
 @media only screen and (max-width: 768px) {
   .main {
@@ -289,5 +310,3 @@
 
   .question__heading {
     font-size: 2vw; } }
-
-/*# sourceMappingURL=styles.css.map */
