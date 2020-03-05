@@ -127,11 +127,6 @@ $bg-btn-color-hover: #b3792e;
   width: 100vw;
 }
 
-  .legal p {
-    position: absolute;
-    bottom: 2vh;
-  }
-
 ////////////////////////////// for non-touch screen devices (to eliminate hover effects trails) //////////////////////////////
 
 @media(hover: hover) and (pointer: fine) {

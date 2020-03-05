@@ -131,10 +131,6 @@
   height: 5vh;
   width: 100vw; }
 
-.legal p {
-  position: absolute;
-  bottom: 2vh; }
-
 @media (hover: hover) and (pointer: fine) {
   .start-over__button:hover,
   .button-container-1__button:hover:not(.correct):not(.incorrect),
